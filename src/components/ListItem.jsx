@@ -1,10 +1,10 @@
 import React from "react";
 
+
 export default function ListItem(props) {
     const { listing_id, url, MainImage, title, currency_code, price, quantity } = props;
 
-    let name = title.length > 50 ? `${title.slice(0, 50)}...` : title;
-    let code = currency_code;
+    let name = { title }.length > 50 ? `${title.slice(0, 50)}...` : title;
     let levelClass;
     let priceCurrency;
 
@@ -30,12 +30,12 @@ export default function ListItem(props) {
                 <div className="item">
                     <div className="item-image">
                         <a href={url}>
-                            <img src={MainImage.url_570xN} />
+                            <img src={MainImage} />
                         </a>
                     </div>
                     <div className="item-details">
                         <p className="item-title">{name}</p>
-                        <p className="item-price">{price}</p>
+                        <p className="item-price">{priceCurrency}</p>
                         <p className={levelClass}>{quantity}</p>
                     </div>
                 </div>

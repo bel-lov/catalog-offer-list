@@ -1,7 +1,6 @@
 import React from "react";
 import ListItem from "./ListItem";
 
-
 export default function Listing(props) {
     const { items } = props;
     return (
