@@ -2,8 +2,8 @@ import React from "react";
 
 
 export default function ListItem(props) {
-    const { listing_id, url, MainImage, title, currency_code, price, quantity } = props;
-
+    const { listing_id, url, MainImage, title, currency_code, price, quantity } = props.item;
+    console.log(props.item)
     let name = { title }.length > 50 ? `${title.slice(0, 50)}...` : title;
     let levelClass;
     let priceCurrency;
@@ -26,20 +26,20 @@ export default function ListItem(props) {
 
     return (
         <>
-            <div className="item-list">
-                <div className="item">
-                    <div className="item-image">
-                        <a href={url}>
-                            <img src={MainImage} />
-                        </a>
-                    </div>
-                    <div className="item-details">
-                        <p className="item-title">{name}</p>
-                        <p className="item-price">{priceCurrency}</p>
-                        <p className={levelClass}>{quantity}</p>
-                    </div>
+            {/* <div className={url && MainImage ? 'item' : 'hidden'} key={listing_id} > */}
+            {/* <div className={MainImage ? 'item' : 'hidden'} key={listing_id} > */}
+            <div className='item' key={listing_id} >
+                <div className="item-image">
+                    <a href={url}>
+                        <img src={MainImage} />
+                    </a>
                 </div>
-            </div >
+                <div className="item-details">
+                    <p className="item-title">{name}</p>
+                    <p className="item-price">{priceCurrency}</p>
+                    <p className={`item-quantity ${levelClass}`}>{quantity}</p>
+                </div>
+            </div>
         </>
     );
 }
